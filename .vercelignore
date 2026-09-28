@@ -1,0 +1,5 @@
+source-*.html
+image-manifest.json
+download-results.json
+*.py
+_scrape

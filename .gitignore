@@ -1,0 +1,4 @@
+_scrape/
+.vercel/
+*.pyc
+.DS_Store
