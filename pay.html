@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pay with crypto — Daniel Obute | Demo</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="assets/signature-squ-blk-exMzPNkLRzjNOHaA.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/original.css" />
+</head>
+<body>
+  <div class="demo-banner" role="status">
+    <span>Demo only — not the official site</span>
+    <span class="sep">·</span>
+    <span>Crypto checkout (demo wallets in config.js)</span>
+    <span class="sep">·</span>
+    <a href="index.html">Back to Services</a>
+  </div>
+
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">
+        <img src="assets/signature-squ-blk-exMzPNkLRzjNOHaA.png" alt="Obute Studios logo" width="40" height="40" />
+        <span>Daniel Obute</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Services</a>
+      </nav>
+      <a class="nav-cta" href="index.html">Packages</a>
+    </div>
+  </header>
+
+  <main class="pay-page">
+    <div class="container">
+      <button type="button" class="text-back" onclick="location.href='index.html'">← Back to packages</button>
+      <h1>Pay with crypto</h1>
+      <p class="pay-lede">Crypto only — USDT, ETH, or BTC. No cards.</p>
+
+      <ol class="checkout-steps" aria-label="Checkout progress">
+        <li data-step-label="package" class="active">1. Package</li>
+        <li data-step-label="pay">2. Send crypto</li>
+        <li data-step-label="done">3. Done</li>
+      </ol>
+
+      <div class="pay-card" data-pay-root>
+        <div data-pay-main>
+          <div class="pay-summary">
+            <img data-pkg-img src="assets/bayc-AlmkeHN6AHmTlQeo.png" alt="" width="72" height="90" />
+            <div>
+              <h2 data-pkg-name>Package</h2>
+              <div class="amt" data-pkg-price>$0</div>
+              <div class="sub" data-pkg-desc></div>
+            </div>
+          </div>
+
+          <form class="checkout-form" data-buyer-form>
+            <label>Your name<input type="text" name="name" autocomplete="name" placeholder="Name" /></label>
+            <label>Email*<input type="email" name="email" required autocomplete="email" placeholder="you@email.com" /></label>
+            <label>Project notes<textarea name="notes" placeholder="Brief, references, deadline…"></textarea></label>
+          </form>
+
+          <p class="pay-hint">Select a coin, send the USD amount (USDT is typically 1:1), then copy the address or scan the QR.</p>
+
+          <h3 style="margin:0;font-size:14px">Select coin</h3>
+          <div class="coin-options" data-coin-options role="listbox" aria-label="Cryptocurrency"></div>
+
+          <div class="demo-wallet-banner" data-demo-wallet hidden>
+            Demo wallet address — replace in <code>js/config.js</code> before taking live payments.
+          </div>
+
+          <div class="wallet-qr-wrap">
+            <img data-wallet-qr src="" alt="Wallet QR code" width="220" height="220" />
+          </div>
+          <p style="margin:0 0 .35rem;font-size:13px;font-weight:600">Network: <span data-wallet-network></span></p>
+          <p style="margin:0 0 .75rem;font-size:13px;color:#56585e" data-wallet-note></p>
+          <label style="font-size:13px;font-weight:600">Send to this address</label>
+          <div class="wallet-addr-row" style="margin-top:.35rem;margin-bottom:1rem">
+            <code class="wallet-addr" data-wallet-address></code>
+            <button type="button" class="btn btn-ghost btn-sm" data-copy-address>Copy</button>
+          </div>
+
+          <div class="tx-field">
+            <label>Transaction hash / reference <span class="optional">(optional)</span>
+              <input type="text" name="txHash" placeholder="Paste tx hash after sending" autocomplete="off" />
+            </label>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-block" data-confirm-paid>I’ve paid</button>
+        </div>
+
+        <div class="success-card" data-pay-success hidden>
+          <h2>Payment submitted</h2>
+          <p data-success-detail>Daniel will confirm once the transfer arrives on-chain.</p>
+          <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.25rem">
+            <button type="button" class="btn btn-primary" data-mailto-order>Email order to Daniel</button>
+            <a class="btn btn-ghost" href="index.html">Back to packages</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <span>Demo crypto checkout — wallets in js/config.js</span>
+      <a href="index.html">Services</a>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/pay.js"></script>
+</body>
+</html>
